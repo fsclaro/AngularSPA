@@ -1,0 +1,55 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.space {
+  margin-left: 5px;
+}
+
+.background {
+  background-image: url('../../assets/img/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(58, 56, 56, 0.6);
+  color: white;
+  height: 50px;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.login-box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 130px;
+  width: 30em;
+}
+
+.card-header {
+  display: block;
+  text-align: center;
+}
+
+.card-subtitle {
+  color: red;
+  font-size: 12px;
+}
+
+.fields {
+  padding: 15px;
+}
+
+.username, .password {
+  width: 100%;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge</title>
+</head>
+
+<body>
+  <header>
+    <mat-toolbar>
+      <div>
+        <button mat-icon-button class="example-icon"
+            aria-label="Chalenge" (click)="gotoLogin()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Challenge</span>
+      </div>
+
+      <div class="space-left">
+        <button mat-button [matMenuTriggerFor]="menu">GitHub</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="getTop10()">
+                <mat-icon>face</mat-icon>Usuários - Top 30
+            </button>
+        </mat-menu>
+      </div>
+
+      <span class="example-spacer"></span>
+
+      <div>
+        <button mat-mini-fab color="warn" alt="Favoritar"
+          aria-label="Favorito" (click)="showMessageFavoritar()">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+
+      <div class="space">
+        <button mat-mini-fab color="primary" alt="Compartilhar"
+          aria-label="Compartilhar" (click)="showMessageCompartilhar()">
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+  </header>
+
+    <spa-users [users]="users"></spa-users>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge</title>
+</head>
+
+<body class="background">
+  <header>
+    <mat-toolbar>
+      <div RouterLink="/">
+        <button mat-icon-button class="example-icon" aria-label="Chalenge">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Challenge</span>
+      </div>
+
+      <span class="example-spacer"></span>
+
+      <div>
+        <button mat-mini-fab color="warn" alt="Favoritar"
+          aria-label="Favorito" (click)="showMessageFavoritar()">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+
+      <div class="space">
+        <button mat-mini-fab color="primary" alt="Compartilhar"
+          aria-label="Compartilhar" (click)="showMessageCompartilhar()">
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+  </header>
+
+  <div class="login-box">
+    <mat-card class="mat-elevation-z5">
+      <mat-card-header class="card-header">
+        <mat-card-title>Entre com as suas credenciais</mat-card-title>
+        <mat-card-subtitle class="card-subtitle">(*) Todos os campos são obrigatórios</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+      <p class="fields">
+        <mat-form-field class="username" appearance="fill">
+          <mat-label>Nome do Usuário</mat-label>
+          <input matInput type="text" name="username" value="{{username}}"
+              placeholder="Informe seu nome de usuário" required
+              (keydown)="salvarUsername($event.target.value)"
+              (keyup.enter)="salvarUsername($event.target.value)"
+              (keyup.tab)="salvarUsername($event.target.value)"
+              (mouseleave)="salvarUsername($event.target.value)"
+            >
+          <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>face</mat-icon>
+          </button>
+          <mat-hint>Máximo de 20 caracteres</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p class="fields">
+        <mat-form-field class="password" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input matInput name="password" [type]="hide ? 'password' : 'text'"
+                value="{{password}}" placeholder="Informe sua senha" required
+                (keydown)="salvarPassword($event.target.value)"
+                (keyup.enter)="salvarPassword($event.target.value)"
+                (keyup.tab)="salvarPassword($event.target.value)"
+                (mouseleave)="salvarPassword($event.target.value)"
+            >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint>Mínimo de 3 caracteres</mat-hint>
+          </mat-form-field>
+      </p>
+      </mat-card-content>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="validarCredenciais()">Acessar</button>
+        <button mat-raised-button color="warn" (click)="limparCampos()">Limpar Campos</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="footer">
+      &copy; 2020 Desenvolvido por Fernando S. Claro
+  </div>
+</body>
+</html>
+
